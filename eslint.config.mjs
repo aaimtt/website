@@ -7,6 +7,9 @@ import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort'
 import typescriptEslint from 'typescript-eslint'
 
 export default typescriptEslint.config(
+  {
+    ignores: ['dist/**', 'node_modules/**', 'coverage/**'],
+  },
   eslint.configs.recommended,
   ...typescriptEslint.configs.strict,
   ...typescriptEslint.configs.stylistic,
