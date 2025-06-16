@@ -20,8 +20,12 @@ export const metadata: Metadata = {
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+    <html lang="en" className="dark">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased max-w-[600px] mx-auto px-4 py-20`}
+      >
+        {children}
+      </body>
     </html>
   )
 }

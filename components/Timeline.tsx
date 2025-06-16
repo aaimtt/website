@@ -1,27 +1,21 @@
 'use client'
 
-import { MarkdownMetadata } from '@/app/[slug]/utils'
+import { MetadataTimeline } from '@/app/[slug]/utils'
+import { Typography } from '@/ui/Typography'
 
-export function Timeline({
-  items,
-  layout,
-  title,
-}: NonNullable<MarkdownMetadata['overrides']>[number]) {
-  if (layout !== 'timeline') {
-    throw new Error('Invalid layout for Timeline component')
-  }
-
+export function Timeline({ items, title }: MetadataTimeline) {
   return (
     <>
-      <p>{title}</p>
-      <ul className="timeline">
+      <Typography variant="large">{title}</Typography>
+      <ul>
         {items.map((item, index) => (
-          <li key={index} className="timeline-item">
-            <div className="timeline-date">{item.date.toLocaleDateString()}</div>
-            <div className="timeline-content">
-              <h3>{item.title}</h3>
-              <p>{item.company}</p>
-              <p>{item.description}</p>
+          <li key={index} className="pt-8 first:pt-4 flex flex-row">
+            <div className="w-36">
+              <Typography className="text-muted-foreground/50">{item.date}</Typography>
+            </div>
+            <div>
+              <Typography>{item.title}</Typography>
+              <Typography className="text-muted-foreground">{item.description}</Typography>
             </div>
           </li>
         ))}
