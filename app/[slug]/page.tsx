@@ -1,6 +1,6 @@
-import { Content } from '@/components/Content'
+import { Typography } from '@/ui/Typography'
 
-import { getMarkdownData, getMarkdownFiles } from './utils'
+import { getMarkdownContent, getMarkdownFiles } from './utils'
 
 export async function generateStaticParams() {
   return getMarkdownFiles().map((file) => {
@@ -17,7 +17,7 @@ interface PageProps {
 
 export default async function Page(props: PageProps) {
   const params = await props.params
-  const { content, metadata } = getMarkdownData(params.slug)
+  const content = getMarkdownContent(params.slug)
 
-  return <Content content={content} metadata={metadata} />
+  return <Typography>{content}</Typography>
 }

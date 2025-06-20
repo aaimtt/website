@@ -1,9 +1,9 @@
-import { Content } from '@/components/Content'
+import { Typography } from '@/ui/Typography'
 
-import { getMarkdownData } from './[slug]/utils'
+import { getMarkdownContent } from './[slug]/utils'
 
 export default async function Page() {
-  const { content, metadata } = getMarkdownData('home')
+  const content = getMarkdownContent('home')
 
-  return <Content content={content} metadata={metadata} />
+  return <Typography>{content}</Typography>
 }
