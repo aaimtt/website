@@ -1,4 +1,4 @@
-import { Typography } from '@/ui/Typography'
+import { Typography } from '@/ui/typography'
 
 import { getMarkdownContent, getMarkdownFiles } from './utils'
 

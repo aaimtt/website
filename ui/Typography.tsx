@@ -9,7 +9,7 @@ interface TypographyProps extends HTMLAttributes<HTMLElement> {
   children: string
 }
 
-export const Typography = ({ className, children: markdownContent }: TypographyProps) => {
+export function Typography({ className, children: markdownContent }: TypographyProps) {
   return (
     <ReactMarkdown
       remarkPlugins={[remarkBreaks]}
